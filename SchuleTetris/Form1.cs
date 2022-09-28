@@ -29,22 +29,22 @@ namespace SchuleTetris
         }
         private void SpielfeldGenerieren()
         {
-            Spielfeld spielfeld = new Spielfeld(Color.Red);
+            spielfeld = new Spielfeld(Color.Red);
             int spielfeldBreite = 10;
             int spielfeldHöhe = 22;
 
             splitContainer1.Panel1.Controls.Add(spielfeld.Erstellen(spielfeldHöhe, spielfeldBreite));
             splitContainer1.SplitterDistance = spielfeld.getSize().Width;
             splitContainer1.Height = spielfeld.getSize().Height;
-            //Fenster anpassen:
-            Rectangle screenRectangle = this.RectangleToScreen(this.ClientRectangle);
-            int titleHeight = screenRectangle.Top - this.Top;
+            ////Fenster anpassen:
+            //Rectangle screenRectangle = this.RectangleToScreen(this.ClientRectangle);
+            //int titleHeight = screenRectangle.Top - this.Top;
 
-            this.Height = spielfeld.getSize().Height + titleHeight;//+ SystemInformation.CaptionHeight + SystemInformation.MenuHeight; oder spielfeld.getSize().Height + 43 -> ist höhe titelbar
-            //SystemInformation.CaptionHeight von https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.systeminformation.captionheight?view=windowsdesktop-6.0
-            // taskbar height bzw title bar
+            //this.Height = spielfeld.getSize().Height + titleHeight;//+ SystemInformation.CaptionHeight + SystemInformation.MenuHeight; oder spielfeld.getSize().Height + 43 -> ist höhe titelbar
+            ////SystemInformation.CaptionHeight von https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.systeminformation.captionheight?view=windowsdesktop-6.0
+            //// taskbar height bzw title bar
 
-            //FensterAnpassen();
+            FensterAnpassen();
 
         }
         public void FensterAnpassen()
