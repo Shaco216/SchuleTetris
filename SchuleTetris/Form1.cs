@@ -13,11 +13,14 @@ namespace SchuleTetris
     public partial class Form1 : Form
     {
         Spielfeld spielfeld;
-        
+        Point startpunkt;
+        Tetramino tetramino;
+
         public Form1()
         {
             InitializeComponent();
             //spielfeld = new Spielfeld();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,6 +32,12 @@ namespace SchuleTetris
         }
         private void SpielfeldGenerieren()
         {
+            //Test
+
+            startpunkt = new Point(0,0);
+            tetramino = new Tetramino(startpunkt);
+            
+            //TestEnde
             spielfeld = new Spielfeld(Color.Red);
             int spielfeldBreite = 10;
             int spielfeldHöhe = 22;
