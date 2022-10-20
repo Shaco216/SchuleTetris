@@ -13,7 +13,7 @@ namespace SchuleTetris
         const int anzahlTetraminoFelder = 4;
         bool _drehbar;
         Point _aktPosition;
-        Point _AktPosition { get { return _aktPosition; } }
+        public Point _AktPosition { get { return _aktPosition; } }
         public enum TetraForm
         {
             I,
@@ -26,7 +26,7 @@ namespace SchuleTetris
 
         }
         Point[] koordinatenTetramino;
-        Point[] KoordinatenTetramino { get { return koordinatenTetramino; } }
+        public Point[] KoordinatenTetramino { get { return koordinatenTetramino; } }
         private TetraForm form;
         public TetraForm Form { get { return form; }}
         #region alte idee

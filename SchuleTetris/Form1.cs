@@ -28,6 +28,7 @@ namespace SchuleTetris
             //this als übergabeparameter um genau diese Form1 an den ctor/konstruktor des Spielfelds zu übergeben zur Erstellung des Labels:
 
             SpielfeldGenerieren();
+            spielfeld.ZeichneTetramino();
             //test
         }
         private void SpielfeldGenerieren()
@@ -39,7 +40,7 @@ namespace SchuleTetris
             
             //TestEnde
             spielfeld = new Spielfeld(Color.Red);
-            int spielfeldBreite = 10;
+            int spielfeldBreite = 11;
             int spielfeldHöhe = 22;
 
             splitContainer1.Panel1.Controls.Add(spielfeld.Erstellen(spielfeldHöhe, spielfeldBreite));
@@ -74,6 +75,16 @@ namespace SchuleTetris
         private void splitContainer1_Panel1_ControlAdded(object sender, ControlEventArgs e)
         {
             //splitContainer1.SplitterDistance = spielfeld.getSize().Width;
+        }
+        private void testeTetramino()
+        {
+
+        }
+
+        private void buttonRotateLeft_Click(object sender, EventArgs e)
+        {
+            spielfeld.löscheTetramino();
+            spielfeld.
         }
     }
 }

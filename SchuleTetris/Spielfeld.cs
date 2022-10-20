@@ -34,8 +34,10 @@ namespace SchuleTetris
         }
         Size size;
         Color spielfeldfarbe;
-
         Label[,] labels;
+
+        Tetramino aktTetramino;
+
         public Spielfeld()
         {
             labelbreite = 30; //ToDo: Variablisieren...
@@ -81,6 +83,13 @@ namespace SchuleTetris
             spielfeldfarbe = spielfeldFarbe;
             this.Offset = Offset;
             size = new Size();
+#region nicht benötigt weil tetramino hier noch nicht erstellt werden kann
+            ////aktueller WUnsch: Startposition aus SPielfeldgröße in Reihe 2 und Spielfeldmitte berechnen
+            //int xPosTetramino = this.labelbreite / 2;
+            //int yPosTetramino = 2; //2. Reihe
+            //Point startposition = new Point(xPosTetramino, 2)
+            aktTetramino = null; // weil er erst erstellt werden kann, wenn das Spielfeld erstellt wurde
+#endregion
         }
 
         internal Panel Erstellen(int spielfeldHöhe =22, int spielfeldBreite = 10)
@@ -113,13 +122,33 @@ namespace SchuleTetris
             this.size = spielfeldpanel.Size;
             #endregion
             #region Hauptform anpassen
+            #endregion
+            //Tetramino Startposition und ersten Tetramino erstellen
+            int xPosTetramino = spielfeldBreite / 2; // durch zwei teilen weil in mitte platziert werden soll
+            int yPosTetramino = 2; // weil 2. Reihe 
+            Point startposition = new Point(xPosTetramino, yPosTetramino);
+            aktTetramino = new Tetramino(startposition);
+
+
             return spielfeldpanel;
             /*
             int titelhöhe = 20;
             mainform.Size = new Size(Offset + spielfeldBreite * (labelbreite +2) + Offset, Offset + titelhöhe + spielfeldHöhe * labelhöhe + Offset);*/
-            #endregion
+            
         }
 
+        public void ZeichneTetramino()
+        {
+            Point[] aktForm = aktTetramino.KoordinatenTetramino;
+            for(int i = 0; i< aktForm.Length; i++)
+            {
+                labels[aktForm[i].X + aktTetramino._AktPosition.Y, aktForm[i].Y + aktTetramino._AktPosition.X].BackColor = aktTetramino.ColorTetramino;
+            }
+        }
+        public void LöschenTetramino()
+        {
+
+        }
         public void testmethode()
         {
             // testlabel.
